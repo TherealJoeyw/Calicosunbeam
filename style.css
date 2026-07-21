@@ -90,7 +90,7 @@ main{
   max-width: var(--content-width);
   width: 100%;
   margin: 0 auto;
-  padding: var(--space-xl) var(--space-md) 96px;
+  padding: var(--space-xl) var(--space-md) 140px;
 }
 
 /* ---- nav ---- */
@@ -413,7 +413,7 @@ code{
 /* ---- vine footer animation ---- */
 
 .vine-wrap{
-  position: fixed;
+  position: absolute;
   left:0; right:0; bottom:0;
   z-index:0;
   line-height:0;
