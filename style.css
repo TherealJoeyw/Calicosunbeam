@@ -291,6 +291,15 @@ h2{
   font-weight: 500;
 }
 
+.footnote{
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(148,140,128,0.2);
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
 code{
   font-family: var(--font-mono);
   font-size: 0.9em;
