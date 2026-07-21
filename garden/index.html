@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Garden — Calico Sunbeam</title>
+<title>The Garden - Calico Sunbeam</title>
 <link rel="icon" type="image/png" href="/globalmedia/favicon.png">
 
-<meta property="og:title" content="The Garden — Calico Sunbeam">
+<meta property="og:title" content="The Garden - Calico Sunbeam">
 <meta property="og:description" content="A field note on the bot trap growing behind this site.">
 <meta property="og:image" content="https://calicosunbeam.org/globalmedia/calicocrest.png">
 <meta property="og:url" content="https://calicosunbeam.org/garden/">
@@ -27,14 +27,8 @@
 
 <div class="glow" aria-hidden="true"></div>
 
-<nav class="site-nav">
-  <a class="brand" href="/">Calico Sunbeam</a>
-  <div>
-    <a href="/about.html">About</a>
-    <a href="/garden/" aria-current="page">Garden</a>
-    <a href="https://github.com/TherealJoeyw">GitHub</a>
-  </div>
-</nav>
+<div id="nav-mount"></div>
+<script src="/components/nav.js"></script>
 
 <main>
   <section class="hero">
@@ -46,7 +40,7 @@
   <section class="section">
     <h2>What you're looking at</h2>
     <p>
-      If you're reading this with your own eyes, hello — you're in the right
+      If you're reading this with your own eyes, hello, you're in the right
       place, and also not the target audience. Somewhere behind this page is a
       little loop of fake pages I built for the crawlers, scrapers, and other
       automated nosy-parkers that come sniffing around for things like login
@@ -58,7 +52,7 @@
   <section class="section">
     <h2>How it works</h2>
     <p>
-      It usually starts wherever a bot's curiosity gets the better of it —
+      It usually starts wherever a bot's curiosity gets the better of it:
       something like <code>/bank-information.html</code>, or any other
       suspiciously promising filename it went hunting for. Wherever it enters,
       it lands in a short, deliberately pointless loop:
@@ -66,19 +60,19 @@
     <ul class="fact-list">
       <li>
         <span class="fact-label">bank-information.html</span>
-        <p class="fact-value">"almost there... fetching secrets..." — then quietly hands off to the garden.</p>
+        <p class="fact-value">"almost there... fetching secrets...", then quietly hands off to the garden.</p>
       </li>
       <li>
         <span class="fact-label">garden.html</span>
-        <p class="fact-value">"access granted. loading secure resource..." — then hands off to the tree.</p>
+        <p class="fact-value">"access granted. loading secure resource...", then hands off to the tree.</p>
       </li>
       <li>
         <span class="fact-label">tree.html</span>
-        <p class="fact-value">"verifying credentials... please wait..." — then back to the bank information.</p>
+        <p class="fact-value">"verifying credentials... please wait...", then back to the bank information.</p>
       </li>
     </ul>
     <p>
-      Round and round it goes. No dead end, no real content — just enough
+      Round and round it goes. No dead end, no real content, just enough
       forward momentum to keep something automated clicking through instead of
       doing whatever it actually came here to do.
     </p>
@@ -88,11 +82,11 @@
     <h2>The reward, if it earns one</h2>
     <p>
       Every so often a crawler asks for something with a bit more promise in
-      the name — <code>secrets.yaml</code>, say. That one breaks the loop. It
+      the name, <code>secrets.yaml</code>, say. That one breaks the loop. It
       types itself out like a terminal session, working out your IP, your
       city, your ISP, logging it all with great seriousness, declaring an
-      "unauthorised access" and a threat level, and then — once it's done
-      being dramatic — it sends you somewhere very specific on YouTube.
+      "unauthorised access" and a threat level, and then, once it's done
+      being dramatic, it sends you somewhere very specific on YouTube.
       You'll know it when you see it.
     </p>
   </section>
