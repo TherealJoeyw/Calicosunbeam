@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Calico Sunbeam — shared stylesheet
+   Calico Sunbeam: shared stylesheet
    The process is the art.
    ========================================================================== */
 
@@ -68,7 +68,7 @@ a{
   pointer-events:none;
   opacity:0.05;
   mix-blend-mode: overlay;
-  z-index:1;
+  z-index:2;
 }
 
 /* soft sunbeam glow behind content */
@@ -81,12 +81,12 @@ a{
   transform:translate(-50%,-50%);
   background: radial-gradient(circle, rgba(255,102,0,0.10) 0%, rgba(255,102,0,0) 65%);
   pointer-events:none;
-  z-index:0;
+  z-index:1;
 }
 
 main{
   position:relative;
-  z-index:2;
+  z-index:3;
   max-width: var(--content-width);
   width: 100%;
   margin: 0 auto;
@@ -97,7 +97,7 @@ main{
 
 nav.site-nav{
   position:relative;
-  z-index:2;
+  z-index:3;
   max-width: var(--content-width);
   width: 100%;
   margin: 0 auto;
@@ -283,6 +283,15 @@ h2{
   font-weight: 500;
 }
 
+code{
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--moss);
+  background: var(--bg-panel);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
 /* ---- projects ---- */
 
 .projects{
@@ -406,7 +415,7 @@ h2{
 .vine-wrap{
   position: fixed;
   left:0; right:0; bottom:0;
-  z-index:1;
+  z-index:0;
   line-height:0;
 }
 
