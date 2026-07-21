@@ -103,19 +103,27 @@ nav.site-nav{
   margin: 0 auto;
   padding: var(--space-md) var(--space-md) 0;
   display:flex;
+  flex-wrap: wrap;
   align-items:center;
   justify-content:space-between;
+  row-gap: var(--space-xs);
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+nav.site-nav .nav-links{
+  display:flex;
+  flex-wrap: wrap;
+  align-items:center;
+  gap: var(--space-xs) var(--space-md);
+}
+
 nav.site-nav a{
   color: var(--muted);
   text-decoration:none;
   padding: 4px 0;
-  margin-left: var(--space-md);
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
