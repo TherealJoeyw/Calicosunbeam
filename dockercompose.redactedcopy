@@ -1,0 +1,38 @@
+networks:
+  calicosunbeam-org:
+    driver: bridge
+services:
+  calicosunbeam-pull:
+    image: alpine/git
+    container_name: calicosunbeam-pull
+    networks:
+      - calicosunbeam-org
+    volumes:
+      - /mnt/pool/website/live:/workspace
+    working_dir: /workspace
+    entrypoint: sh
+    command: -c "git config --global --add safe.directory /workspace && git pull"
+    environment:
+      - HOME=/tmp
+    deploy:
+      restart_policy:
+        condition: none
+  calicosunbeam:
+    container_name: calicosunbeam
+    image: caddy:latest
+    networks:
+      - calicosunbeam-org
+    restart: unless-stopped
+    volumes:
+      - /mnt/pool/website/live:/srv:ro
+      - /mnt/pool/website/Caddyfile:/etc/caddy/Caddyfile:ro
+  cloudflared:
+    command: tunnel run
+    container_name: calicosunbeam-tunnel
+    environment:
+      - >-
+        TUNNEL_TOKEN=REDACTED
+    image: cloudflare/cloudflared:latest
+    networks:
+      - calicosunbeam-org
+    restart: unless-stopped
