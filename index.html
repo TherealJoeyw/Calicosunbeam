@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunbeam: A Calico Project</title>
+<link rel="icon" type="image/png" href="globalmedia/favicon.png">
+
+<!--         +++                         +++
+       +++++                       +++++
+      +++++++                     +++++++
+     +++++++++                   +++++++++
+   ++++++++++++                 ++++++++++++
+  ++++++++++++++               ++++++++++++++
+ ++++++++++++++++             ++++++++++++++++
+++++++++++++++++++           ++++++++++++++++++
+++++++++++++++++++++        +++++++++++++++++++
+  ++++++++++++++++++++
+    +++++++++++++++++++++
+      +++++++++++++++++++++
+        +++++++++++++++++++++
+           ++++++++++++++++++++
+             ++++++++++++++++++++
+               +++++++++++++++++++++
+                 +++++++++++++++++++++
+                    ++++++++++++++++++++
+                      ++++++++++++++++++++
+                        ++++++++++++++++++++
+                          ++++++++++++++++++++
+                           ++++++++++++++++++++
+                        +++++++++++++++++++++
+                      +++++++++++++++++++++
+                    +++++++++++++++++++++
+                  ++++++++++++++++++++
+                ++++++++++++++++++++
+             +++++++++++++++++++++
+           +++++++++++++++++++++
+         ++++++++++++++++++++
+       ++++++++++++++++++++
+     ++++++++++++++++++++
+  +++++++++++++++++++++
++++++++++++++++++++++
+
+Hello friend! -->
+
+<meta property="og:title" content="Joey - Calico Sunbeam">
+<meta property="og:description" content="Ideas that needed somewhere to live, now given a home.">
+<meta property="og:image" content="https://calicosunbeam.org/globalmedia/calicocrest.png">
+<meta property="og:url" content="https://calicosunbeam.org/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FF6600">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;1,9..144,460&family=IBM+Plex+Mono:wght@400;500&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg class="grain" xmlns="http://www.w3.org/2000/svg">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#noise)"/>
+</svg>
+
+<div class="glow" aria-hidden="true"></div>
+
+<div id="nav-mount"></div>
+<script src="/components/nav.js"></script>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Hi, I'm Joey</p>
+    <h1>Sunbeam</h1>
+    <p class="sub">Ideas that needed somewhere to live, now given a home.</p>
+
+    <div class="badge-wrap">
+      <div class="crest-frame">
+        <svg class="crest-rays" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="100" cy="100" r="92"/>
+          <g>
+            <line x1="188" y1="100" x2="198" y2="100"/>
+            <line x1="166.6" y1="166.6" x2="173.7" y2="173.7"/>
+            <line x1="100" y1="188" x2="100" y2="198"/>
+            <line x1="33.4" y1="166.6" x2="26.3" y2="173.7"/>
+            <line x1="12" y1="100" x2="2" y2="100"/>
+            <line x1="33.4" y1="33.4" x2="26.3" y2="26.3"/>
+            <line x1="100" y1="12" x2="100" y2="2"/>
+            <line x1="166.6" y1="33.4" x2="173.7" y2="26.3"/>
+          </g>
+        </svg>
+        <img src="/globalmedia/calicocrest.png" alt="Calico crest" class="crest-img">
+      </div>
+      <p class="badge-caption">Built With Care in Kent UK</p>
+    </div>
+
+    <p class="quote">"The process is the art."</p>
+  </section>
+
+  <section class="section" id="about-me">
+    <h2>Who I am</h2>
+    <p>
+      I'm a biochemistry and geneticics (BSc) graduate who ended up spending just as much
+      time tending servers as cultures. Calico Sunbeam is my little corner of the
+      internet: a place to grow projects slowly, out in the open, without needing
+      them to be finished first.
+    </p>
+    <p>
+      If you want the academic side of the story (degree, thesis, that sort of
+      thing), it lives on the <a href="about.html">about page</a>.
+    </p>
+  </section>
+
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <article class="project-card">
+        <p class="project-tag">This Website</p>
+        <h3>Calico Sunbeam</h3>
+        <p>
+          A static site served off of my personal HPE DL380 G9 I have under my bed.
+          No build step, no framework, just HTML, CSS and JavaScript.
+        </p>
+      </article>
+      <article class="project-card">
+        <p class="project-tag">Little Mischief</p>
+        <h3>The Garden</h3>
+        <p>
+          A small, cheeky trap tucked away for bots, scrapers and "cybersecurity hobbyists" that go poking
+          around where they shouldn't. Nothing valuable to find, just a cat with
+          her claws out.
+        </p>
+        <p><a href="/garden/">Read the field note →</a></p>
+      </article>
+    </div>
+  </section>
+
+  <div class="links-row">
+    <a href="about.html">About</a>
+    <a href="https://github.com/TherealJoeyw/Calicosunbeam">GitHub</a>
+  </div>
+</main>
+
+<div class="vine-wrap" aria-hidden="true">
+  <svg width="100%" height="120" viewBox="0 0 1000 120" xmlns="http://www.w3.org/2000/svg">
+    <path class="vine-path" d="M0,100 C120,70 220,115 340,90 C460,68 560,110 680,88 C800,68 880,105 1000,80"/>
+    <ellipse class="leaf" cx="80"  cy="95"  rx="18" ry="11" transform="rotate(-25 80 95)"/>
+    <ellipse class="leaf" cx="180" cy="82"  rx="20" ry="12" transform="rotate(-20 180 82)"/>
+    <ellipse class="leaf" cx="260" cy="100" rx="18" ry="11" transform="rotate(10 260 100)"/>
+    <ellipse class="leaf" cx="340" cy="88"  rx="20" ry="12" transform="rotate(-15 340 88)"/>
+    <ellipse class="leaf" cx="400" cy="76"  rx="18" ry="11" transform="rotate(15 400 76)"/>
+    <ellipse class="leaf" cx="460" cy="92"  rx="20" ry="12" transform="rotate(-8 460 92)"/>
+    <ellipse class="leaf" cx="530" cy="104" rx="18" ry="11" transform="rotate(20 530 104)"/>
+    <ellipse class="leaf" cx="620" cy="80"  rx="20" ry="12" transform="rotate(-10 620 80)"/>
+    <ellipse class="leaf" cx="700" cy="94"  rx="18" ry="11" transform="rotate(18 700 94)"/>
+    <ellipse class="leaf" cx="760" cy="78"  rx="20" ry="12" transform="rotate(-22 760 78)"/>
+    <ellipse class="leaf" cx="840" cy="74"  rx="18" ry="11" transform="rotate(25 840 74)"/>
+    <ellipse class="leaf" cx="920" cy="88"  rx="20" ry="12" transform="rotate(-12 920 88)"/>
+  </svg>
+</div>
+
+</body>
+</html>
