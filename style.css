@@ -488,6 +488,14 @@ code{
   color: var(--orange);
 }
 
+/* ---- library / document listing ---- */
+
+.notice-text{
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
 /* ---- CV / about tables ---- */
 
 .fact-list{
