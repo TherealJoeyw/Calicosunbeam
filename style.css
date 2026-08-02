@@ -488,6 +488,27 @@ code{
   color: var(--orange);
 }
 
+/* ---- library / document listing ---- */
+
+.library-topic{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: var(--space-lg) 0 0;
+}
+
+.library-topic + .projects{
+  margin-top: var(--space-sm);
+}
+
+.notice-text{
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
 /* ---- CV / about tables ---- */
 
 .fact-list{
