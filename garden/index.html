@@ -97,75 +97,17 @@
       politely but pointedly, that they are not getting what they came for.
     </p>
     <p>
-      That's the joke behind the page this hands off to. You're welcome to
-      visit it on purpose, at <a href="/teapot/">/teapot</a>. If you don't
-      believe me, here's the comment sitting right at the top of its source
-      code:
+      That's the joke behind the page this hands off to. Once you're there,
+      it's simple: it picks a random pride flag and a random destination
+      from two separate lists, completely independently of each other, and
+      fills the whole screen with the flag for half a second before sending
+      you off. No loading text, no "redirecting..." message, nothing else
+      on the page at all. Adding another flag or another destination later
+      is just another entry in a list, nothing else has to change.
     </p>
-    <pre class="comment-block">/teapot - the 418 redirect page
-
-if you're reading this, you either probed calicosunbeam.org for something
-you shouldn't have, or you're curious about how the site works. either way, hi.
-
-how it works:
-
-1. the page loads with a full screen div
-2. a random flag is selected from the flags array using Math.floor(Math.random() * flags.length)
-3. the flag colors are built into a CSS linear-gradient applied to the div background
-4. simultaneously a random redirect is selected from the redirects array using the same method
-5. after 500ms a setTimeout fires window.location.href to the selected redirect URL
-6. the flag and redirect are selected independently so any combination is possible
-7. the redirects array length is used directly so adding new entries requires no other changes
-8. same for the flags array
-
-the cloudflare redirect rule that sends traffic here matches these paths:
-/.git/, /.env, /.htaccess, /.htpasswd, /wp-admin, /wp-login, /wp-config,
-/phpMyAdmin, /phpmyadmin, /shell, /cmd, /getcmd, /.aws, /.ssh, /actuator,
-/xmlrpc, /passwd, /docker, /composer, /node_modules, /vendor, /.DS_Store,
-/autodiscover, /proc/self
-
-the WAF rule runs before the redirect rule so blocked paths never reach caddy.
-the redirect rule points here instead of blocking so humans get the full experience.
-bots just get a 302 and move on. we don't mind.
-
-the serious ones don't have uwu labels. you'll know which ones they are.
-
-           +++                         +++
-     +++++                       +++++
-    +++++++                     +++++++
-   +++++++++                   +++++++++
- ++++++++++++                 ++++++++++++
-++++++++++++++               ++++++++++++++
-++++++++++++++++             ++++++++++++++++
-++++++++++++++++++           ++++++++++++++++++
-++++++++++++++++++++        +++++++++++++++++++
-  ++++++++++++++++++++
-    +++++++++++++++++++++
-      +++++++++++++++++++++
-        +++++++++++++++++++++
-           ++++++++++++++++++++
-             ++++++++++++++++++++
-               +++++++++++++++++++++
-                 +++++++++++++++++++++
-                    ++++++++++++++++++++
-                      ++++++++++++++++++++
-                        ++++++++++++++++++++
-                          ++++++++++++++++++++
-                           ++++++++++++++++++++
-                        +++++++++++++++++++++
-                      +++++++++++++++++++++
-                    +++++++++++++++++++++
-                  ++++++++++++++++++++
-                ++++++++++++++++++++
-             +++++++++++++++++++++
-           +++++++++++++++++++++
-         ++++++++++++++++++++
-       ++++++++++++++++++++
-     ++++++++++++++++++++
-  +++++++++++++++++++++
-+++++++++++++++++++++
-
-made with spite and good intentions by calicosunbeam.org</pre>
+    <p>
+      You're welcome to visit it on purpose, at <a href="/teapot/">/teapot</a>.
+    </p>
   </section>
 
   <section class="section">

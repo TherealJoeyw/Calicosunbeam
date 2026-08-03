@@ -389,21 +389,6 @@ code{
   border-radius: 4px;
 }
 
-.comment-block{
-  font-family: var(--font-mono);
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--muted);
-  background: var(--bg-panel);
-  border: 1px solid rgba(148,140,128,0.25);
-  border-radius: var(--radius);
-  padding: var(--space-md);
-  margin: var(--space-md) 0 0;
-  text-align: left;
-  overflow-x: auto;
-  white-space: pre;
-}
-
 /* ---- projects ---- */
 
 .projects{
