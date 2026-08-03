@@ -1,0 +1,132 @@
+<!--
+  /teapot - the 418 redirect page
+
+  if you're reading this, you either probed calicosunbeam.org for something
+  you shouldn't have, or you're curious about how the site works. either way, hi.
+
+  this page is served to anyone requesting common attack paths like /.git/, /.env,
+  /wp-admin, etc. instead of a boring 403 or 404, you get a random pride flag
+  for half a second and then get sent somewhere. where? who knows. could be
+  educational. could be a 10gb file. could be the gender recognition act 2004.
+
+  to add more redirects: add an object to the redirects array with url and label.
+  to add more flags: add an object to the flags array with name and colors.
+
+  the serious ones don't have uwu labels. you'll know which ones they are.
+
+           +++                         +++
+     +++++                       +++++
+    +++++++                     +++++++
+   +++++++++                   +++++++++
+ ++++++++++++                 ++++++++++++
+++++++++++++++               ++++++++++++++
+++++++++++++++++             ++++++++++++++++
+++++++++++++++++++           ++++++++++++++++++
+++++++++++++++++++++        +++++++++++++++++++
+  ++++++++++++++++++++
+    +++++++++++++++++++++
+      +++++++++++++++++++++
+        +++++++++++++++++++++
+           ++++++++++++++++++++
+             ++++++++++++++++++++
+               +++++++++++++++++++++
+                 +++++++++++++++++++++
+                    ++++++++++++++++++++
+                      ++++++++++++++++++++
+                        ++++++++++++++++++++
+                          ++++++++++++++++++++
+                           ++++++++++++++++++++
+                        +++++++++++++++++++++
+                      +++++++++++++++++++++
+                    +++++++++++++++++++++
+                  ++++++++++++++++++++
+                ++++++++++++++++++++
+             +++++++++++++++++++++
+           +++++++++++++++++++++
+         ++++++++++++++++++++
+       ++++++++++++++++++++
+     ++++++++++++++++++++
+  +++++++++++++++++++++
++++++++++++++++++++++
+
+  made with spite and good intentions by calicosunbeam.org
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>418</title>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+  }
+</style>
+</head>
+<body>
+<script>
+  const flags = [
+    { name: "rainbow", colors: ["#E40303", "#FF8C00", "#FFED00", "#008026", "#004DFF", "#750787"] },
+    { name: "trans", colors: ["#55CDFC", "#F7A8B8", "#FFFFFF", "#F7A8B8", "#55CDFC"] },
+    { name: "bisexual", colors: ["#D60270", "#D60270", "#9B4F96", "#0038A8", "#0038A8"] },
+    { name: "nonbinary", colors: ["#FCF434", "#FFFFFF", "#9C59D1", "#2D2D2D"] },
+    { name: "asexual", colors: ["#000000", "#A4A4A4", "#FFFFFF", "#810081"] },
+    { name: "pansexual", colors: ["#FF218C", "#FFD800", "#21B1FF"] }
+  ];
+
+  const redirects = [
+    { url: "https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol", label: "the actual 418 RFC uwu" },
+    { url: "https://en.wikipedia.org/wiki/Script_kiddie", label: "wikipedia: script kiddie >:3" },
+    { url: "https://give.thetrevorproject.org/give/63307/#!/donation/checkout?amount=69420&frequency=monthly", label: "The Trevor Project - crisis support for LGBTQ youth" },
+    { url: "https://proof.ovh.net/files/10Gb.dat", label: "a 10gb file download, you're welcome :3" },
+    { url: "https://en.wikipedia.org/wiki/Honeypot_(computing)", label: "wikipedia: honeypot uwu" },
+    { url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", label: "never gonna give you up >:3" },
+    { url: "https://en.wikipedia.org/wiki/You_are_not_expected_to_understand_this", label: "you are not expected to understand this owo" },
+    { url: "https://learngitbranching.js.org", label: "learn git properly since you were looking for git repos :3" },
+    { url: "https://en.wikipedia.org/wiki/Streisand_effect", label: "The Streisand Effect - on the futility of suppressing information" },
+    { url: "https://instantrimshot.com/index.php?sound=rimshot&play=true", label: "rimshot sound effect >w<" },
+    { url: "https://www.youtube.com/watch?v=1cUUfMeOijg", label: "tom scott explains cloudflare's lava lamps uwu" },
+    { url: "https://www.youtube.com/watch?v=Ob_EDY9Eiis", label: "porter robinson & ninajirachi - wannacry >:3" },
+    { url: "https://www.youtube.com/watch?v=BmmMfZR8C80", label: "femtanyl - girl hell 1999 owo" },
+    { url: "https://en.wikipedia.org/wiki/WannaCry_ransomware_attack", label: "wikipedia: the actual wannacry ransomware attack :3" },
+    { url: "https://httpbin.org/delay/10", label: "10 second delay response, enjoy waiting uwu" },
+    { url: "https://en.wikipedia.org/wiki/Stonewall_riots", label: "The Stonewall Riots - the uprising that started the modern LGBTQ rights movement" },
+    { url: "https://en.wikipedia.org/wiki/Alan_Turing", label: "Alan Turing - father of computing, prosecuted by the British state for being gay" },
+    { url: "https://en.wikipedia.org/wiki/Magnus_Hirschfeld", label: "Magnus Hirschfeld - founder of the world's first gay rights organisation, burned by the Nazis in 1933" },
+    { url: "https://en.wikipedia.org/wiki/Unusually_shaped_vegetable", label: "wikipedia: unusually shaped vegetables uwu" },
+    { url: "https://en.wikipedia.org/wiki/Operation_Acoustic_Kitty", label: "wikipedia: the CIA spy cat program >:3" },
+    { url: "https://www.cats.org.uk", label: "cats protection charity, adopt don't shop owo" },
+    { url: "https://www.scientology.org", label: "scientology, looks horrifying in a log file :3" },
+    { url: "https://www.youtube.com/watch?v=pmQsrXLofMY", label: "star trek enterprise theme uwu" },
+    { url: "https://www.youtube.com/watch?v=KWQDJihfYt8", label: "the lgbtq history of star trek by jessie gender >w<" },
+    { url: "https://www.legislation.gov.uk/ukpga/1990/18/contents", label: "Computer Misuse Act 1990 - the law you might be breaking" },
+    { url: "https://www.legislation.gov.uk/ukpga/1986/62/contents", label: "salmon act 1986, suspicious salmon handling is illegal :3" },
+    { url: "https://www.legislation.gov.uk/ukpga/2006/46/contents", label: "companies act 2006, all 700 pages of it uwu" },
+    { url: "https://www.legislation.gov.uk/ukpga/1839/94/contents", label: "1839 act exempting the duke of marlborough's heirs from a tax >:3" },
+    { url: "https://www.legislation.gov.uk/ukpga/2004/7/contents", label: "Gender Recognition Act 2004 - still standing" },
+    { url: "https://en.wikipedia.org/wiki/Lynn_Conway", label: "Lynn Conway - trans computing pioneer whose contributions were deliberately erased for decades" }
+  ];
+
+  function stripeGradient(colors) {
+    const step = 100 / colors.length;
+    const stops = [];
+    colors.forEach((color, i) => {
+      stops.push(`${color} ${i * step}%`, `${color} ${(i + 1) * step}%`);
+    });
+    return `linear-gradient(to bottom, ${stops.join(", ")})`;
+  }
+
+  const flag = flags[Math.floor(Math.random() * flags.length)];
+  document.body.style.background = stripeGradient(flag.colors);
+
+  const redirect = redirects[Math.floor(Math.random() * redirects.length)];
+  setTimeout(() => {
+    window.location.href = redirect.url;
+  }, 500);
+</script>
+</body>
+</html>
