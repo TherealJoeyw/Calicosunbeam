@@ -42,7 +42,7 @@
     <p>
       If you're reading this with your own eyes, hello, you're in the right
       place, and also not the target audience. Somewhere behind the homepage is a
-      little chain of fake pages I built for the crawlers, scrapers, and other
+      small decoy file I built for the crawlers, scrapers, and other
       automated or not nosy-parkers that come sniffing around for things like login
       panels, backup files, and anything with "secret" in the name. None of it
       is real. They just haven't figured that out yet.
@@ -52,14 +52,14 @@
   <section class="section">
     <h2>How it works</h2>
     <p>
-      It usually starts wherever a bot's curiosity gets the better of it:
-      something like <code>/bank-information.html</code>, or any other
-      suspiciously promising filename it went hunting for.
+      It usually starts wherever a bot's curiosity gets the better of it: it
+      goes hunting for something with "secret" in the name, finds
+      <code>secrets.yaml</code>, and asks for it.
     </p>
     <ul class="fact-list">
       <li>
-        <span class="fact-label">bank-information.html</span>
-        <p class="fact-value">"almost there... fetching secrets...", then hands off straight to the teapot.</p>
+        <span class="fact-label">secrets.yaml</span>
+        <p class="fact-value">checks the user agent, and if it looks automated, hands off straight to the teapot.</p>
       </li>
     </ul>
     <p>
@@ -81,17 +81,16 @@
       politely but pointedly, that they are not getting what they came for.
     </p>
     <p>
-      That's the joke behind the page this loop dumps people into. You're
-      welcome to visit it on purpose, at <a href="/teapot/">/teapot</a>.
+      That's the joke behind the page this hands off to. You're welcome to
+      visit it on purpose, at <a href="/teapot/">/teapot</a>.
     </p>
   </section>
 
   <section class="section">
     <h2>The reward, if it earns one</h2>
     <p>
-      Every so often a crawler asks for something with a bit more promise in
-      the name, <code>secrets.yaml</code>, say. That one does something different. It
-      types itself out like a terminal session, working out your IP, your
+      If whoever opens <code>secrets.yaml</code> isn't a bot, it does
+      something different. It types itself out like a terminal session, working out your IP, your
       city, your ISP, logging it all with great seriousness, declaring an
       "unauthorised access" and a threat level. None of it is real, It's all theatre,
       running entirely in your browser, storing nothing. and then, once it's done

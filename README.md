@@ -30,7 +30,7 @@ configfilebackups/
   dockercompose.redactedcopy  a copy of the compose file behind it, secrets stripped
 ```
 
-There's also a handful of decoy pages at the root (`bank-information.html`, `secrets.yaml`) that exist for crawlers and scrapers, not humans, and hand off to `/teapot/`. See [`/garden/`](https://calicosunbeam.org/garden/) for what those are about.
+There's also a decoy file at the root (`secrets.yaml`) that exists for crawlers and scrapers, not humans, and hands off to `/teapot/`. See [`/garden/`](https://calicosunbeam.org/garden/) for what that's about.
 
 ## Design system
 
