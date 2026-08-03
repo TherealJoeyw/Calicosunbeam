@@ -42,7 +42,7 @@
     <p>
       If you're reading this with your own eyes, hello, you're in the right
       place, and also not the target audience. Somewhere behind the homepage is a
-      little loop of fake pages I built for the crawlers, scrapers, and other
+      small decoy file I built for the crawlers, scrapers, and other
       automated or not nosy-parkers that come sniffing around for things like login
       panels, backup files, and anything with "secret" in the name. None of it
       is real. They just haven't figured that out yet.
@@ -52,38 +52,45 @@
   <section class="section">
     <h2>How it works</h2>
     <p>
-      It usually starts wherever a bot's curiosity gets the better of it:
-      something like <code>/bank-information.html</code>, or any other
-      suspiciously promising filename it went hunting for. Wherever it enters,
-      it lands in a short, deliberately pointless loop:
+      It usually starts wherever a bot's curiosity gets the better of it: it
+      goes hunting for something with "secret" in the name, finds
+      <code>secrets.yaml</code>, and asks for it.
     </p>
     <ul class="fact-list">
       <li>
-        <span class="fact-label">bank-information.html</span>
-        <p class="fact-value">"almost there... fetching secrets...", then quietly hands off to the garden.</p>
-      </li>
-      <li>
-        <span class="fact-label">garden.html</span>
-        <p class="fact-value">"access granted. loading secure resource...", then hands off to the tree.</p>
-      </li>
-      <li>
-        <span class="fact-label">tree.html</span>
-        <p class="fact-value">"verifying credentials... please wait...", then back to the bank information.</p>
+        <span class="fact-label">secrets.yaml</span>
+        <p class="fact-value">checks the user agent, and if it looks automated, hands off straight to the teapot.</p>
       </li>
     </ul>
     <p>
-      Round and round it goes. No dead end, no real content, just enough
-      forward momentum to keep something automated clicking through instead of
-      doing whatever it actually came here to do.
+      One hop, and the teapot takes over: a random pride flag fills the
+      screen for half a second, and it gets sent somewhere. No dead end, no
+      real content, just enough forward momentum to keep something automated
+      clicking through instead of doing whatever it actually came here to do.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Why "teapot"?</h2>
+    <p>
+      HTTP status 418 is "I'm a teapot", a real header defined (mostly as a
+      joke) in <a href="https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol">RFC 2324</a>,
+      the Hyper Text Coffee Pot Control Protocol. It's what a teapot is
+      supposed to say if you ask it to brew coffee: it physically can't, so
+      it refuses. Servers have been reusing it ever since to tell someone,
+      politely but pointedly, that they are not getting what they came for.
+    </p>
+    <p>
+      That's the joke behind the page this hands off to. You're welcome to
+      visit it on purpose, at <a href="/teapot/">/teapot</a>.
     </p>
   </section>
 
   <section class="section">
     <h2>The reward, if it earns one</h2>
     <p>
-      Every so often a crawler asks for something with a bit more promise in
-      the name, <code>secrets.yaml</code>, say. That one does something different. It
-      types itself out like a terminal session, working out your IP, your
+      If whoever opens <code>secrets.yaml</code> isn't a bot, it does
+      something different. It types itself out like a terminal session, working out your IP, your
       city, your ISP, logging it all with great seriousness, declaring an
       "unauthorised access" and a threat level. None of it is real, It's all theatre,
       running entirely in your browser, storing nothing. and then, once it's done
