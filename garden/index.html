@@ -1,3 +1,19 @@
+<!--
+  /garden - the field note
+
+  if you're reading this, you either followed the link from the homepage
+  out of curiosity, or you're poking around the source of a decoy page.
+  either way, hi.
+
+  this page is the plain-language writeup of secrets.yaml: the one decoy
+  file left at the root for bots and scrapers hunting logins, backups, or
+  anything with "secret" in the name. bots get shortcut straight to
+  /teapot/. humans get a dramatic fake terminal session first, then a
+  rickroll. the body text below explains it properly, this comment is
+  just for whoever's reading the source instead of the page.
+
+  made with spite and good intentions by calicosunbeam.org
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,8 +98,61 @@
     </p>
     <p>
       That's the joke behind the page this hands off to. You're welcome to
-      visit it on purpose, at <a href="/teapot/">/teapot</a>.
+      visit it on purpose, at <a href="/teapot/">/teapot</a>. If you don't
+      believe me, here's the comment sitting right at the top of its source
+      code:
     </p>
+    <pre class="comment-block">/teapot - the 418 redirect page
+
+if you're reading this, you either probed calicosunbeam.org for something
+you shouldn't have, or you're curious about how the site works. either way, hi.
+
+this page is served to anyone requesting common attack paths like /.git/, /.env,
+/wp-admin, etc. instead of a boring 403 or 404, you get a random pride flag
+for half a second and then get sent somewhere. where? who knows. could be
+educational. could be a 10gb file. could be the gender recognition act 2004.
+
+to add more redirects: add an object to the redirects array with url and label.
+to add more flags: add an object to the flags array with name and colors.
+
+the serious ones don't have uwu labels. you'll know which ones they are.
+
+           +++                         +++
+     +++++                       +++++
+    +++++++                     +++++++
+   +++++++++                   +++++++++
+ ++++++++++++                 ++++++++++++
+++++++++++++++               ++++++++++++++
+++++++++++++++++             ++++++++++++++++
+++++++++++++++++++           ++++++++++++++++++
+++++++++++++++++++++        +++++++++++++++++++
+  ++++++++++++++++++++
+    +++++++++++++++++++++
+      +++++++++++++++++++++
+        +++++++++++++++++++++
+           ++++++++++++++++++++
+             ++++++++++++++++++++
+               +++++++++++++++++++++
+                 +++++++++++++++++++++
+                    ++++++++++++++++++++
+                      ++++++++++++++++++++
+                        ++++++++++++++++++++
+                          ++++++++++++++++++++
+                           ++++++++++++++++++++
+                        +++++++++++++++++++++
+                      +++++++++++++++++++++
+                    +++++++++++++++++++++
+                  ++++++++++++++++++++
+                ++++++++++++++++++++
+             +++++++++++++++++++++
+           +++++++++++++++++++++
+         ++++++++++++++++++++
+       ++++++++++++++++++++
+     ++++++++++++++++++++
+  +++++++++++++++++++++
++++++++++++++++++++++
+
+made with spite and good intentions by calicosunbeam.org</pre>
   </section>
 
   <section class="section">
@@ -113,6 +182,8 @@
       I don't write the security policy. She does. She's watching :3.
     </p>
   </section>
+
+  <p class="footnote">Made with spite and good intentions by calicosunbeam.org.</p>
 
   <div class="links-row">
     <a href="/">Home</a>
