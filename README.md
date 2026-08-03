@@ -30,7 +30,7 @@ configfilebackups/
   dockercompose.redactedcopy  a copy of the compose file behind it, secrets stripped
 ```
 
-There's also a decoy file at the root (`secrets.yaml`) that exists for crawlers and scrapers, not humans, and hands off to `/teapot/`. See [`/garden/`](https://calicosunbeam.org/garden/) for what that's about.
+The bot-trap layer lives at the edge, not in this repo: a Cloudflare WAF/redirect rule catches common attack-surface paths (`/.git/`, `/.env`, `/wp-admin`, etc.) and sends them straight to `/teapot/` instead of blocking them. See [`/garden/`](https://calicosunbeam.org/garden/) for the writeup.
 
 ## Design system
 

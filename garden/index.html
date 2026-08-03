@@ -5,12 +5,11 @@
   out of curiosity, or you're poking around the source of a decoy page.
   either way, hi.
 
-  this page is the plain-language writeup of secrets.yaml: the one decoy
-  file left at the root for bots and scrapers hunting logins, backups, or
-  anything with "secret" in the name. bots get shortcut straight to
-  /teapot/. humans get a dramatic fake terminal session first, then a
-  rickroll. the body text below explains it properly, this comment is
-  just for whoever's reading the source instead of the page.
+  this page is the plain-language writeup of what happens when a
+  cloudflare WAF/redirect rule catches a suspicious request path and sends
+  it to /teapot instead of blocking it outright. the body text below
+  explains it properly, this comment is just for whoever's reading the
+  source instead of the page.
 
   made with spite and good intentions by calicosunbeam.org
 -->
@@ -57,27 +56,28 @@
     <h2>What you're looking at</h2>
     <p>
       If you're reading this with your own eyes, hello, you're in the right
-      place, and also not the target audience. Somewhere behind the homepage is a
-      small decoy file I built for the crawlers, scrapers, and other
-      automated or not nosy-parkers that come sniffing around for things like login
-      panels, backup files, and anything with "secret" in the name. None of it
-      is real. They just haven't figured that out yet.
+      place, and also not the target audience. In front of the homepage sits
+      a Cloudflare rule watching for the usual crawler and scraper bait:
+      login panels, backup files, config dumps, anything that looks like it
+      might be worth poking at. None of it is real. They just haven't
+      figured that out yet.
     </p>
   </section>
 
   <section class="section">
     <h2>How it works</h2>
     <p>
-      It usually starts wherever a bot's curiosity gets the better of it: it
-      goes hunting for something with "secret" in the name, finds
-      <code>secrets.yaml</code>, and asks for it.
+      A WAF rule matches a fixed list of suspicious paths
+      (<code>/.git/</code>, <code>/.env</code>, <code>/wp-admin</code>, and
+      a couple dozen others) before the request ever reaches the actual
+      server.
     </p>
-    <ul class="fact-list">
-      <li>
-        <span class="fact-label">secrets.yaml</span>
-        <p class="fact-value">checks the user agent, and if it looks automated, hands off straight to the teapot.</p>
-      </li>
-    </ul>
+    <p>
+      A redirect rule then sends anything on that list straight to
+      <code>/teapot</code> instead of blocking it outright, so a curious
+      human gets the full experience. A bot just gets a 302 and moves on.
+      We don't mind.
+    </p>
     <p>
       One hop, and the teapot takes over: a random pride flag fills the
       screen for half a second, and it gets sent somewhere. No dead end, no
@@ -107,13 +107,26 @@
 if you're reading this, you either probed calicosunbeam.org for something
 you shouldn't have, or you're curious about how the site works. either way, hi.
 
-this page is served to anyone requesting common attack paths like /.git/, /.env,
-/wp-admin, etc. instead of a boring 403 or 404, you get a random pride flag
-for half a second and then get sent somewhere. where? who knows. could be
-educational. could be a 10gb file. could be the gender recognition act 2004.
+how it works:
 
-to add more redirects: add an object to the redirects array with url and label.
-to add more flags: add an object to the flags array with name and colors.
+1. the page loads with a full screen div
+2. a random flag is selected from the flags array using Math.floor(Math.random() * flags.length)
+3. the flag colors are built into a CSS linear-gradient applied to the div background
+4. simultaneously a random redirect is selected from the redirects array using the same method
+5. after 500ms a setTimeout fires window.location.href to the selected redirect URL
+6. the flag and redirect are selected independently so any combination is possible
+7. the redirects array length is used directly so adding new entries requires no other changes
+8. same for the flags array
+
+the cloudflare redirect rule that sends traffic here matches these paths:
+/.git/, /.env, /.htaccess, /.htpasswd, /wp-admin, /wp-login, /wp-config,
+/phpMyAdmin, /phpmyadmin, /shell, /cmd, /getcmd, /.aws, /.ssh, /actuator,
+/xmlrpc, /passwd, /docker, /composer, /node_modules, /vendor, /.DS_Store,
+/autodiscover, /proc/self
+
+the WAF rule runs before the redirect rule so blocked paths never reach caddy.
+the redirect rule points here instead of blocking so humans get the full experience.
+bots just get a 302 and move on. we don't mind.
 
 the serious ones don't have uwu labels. you'll know which ones they are.
 
@@ -153,19 +166,6 @@ the serious ones don't have uwu labels. you'll know which ones they are.
 +++++++++++++++++++++
 
 made with spite and good intentions by calicosunbeam.org</pre>
-  </section>
-
-  <section class="section">
-    <h2>The reward, if it earns one</h2>
-    <p>
-      If whoever opens <code>secrets.yaml</code> isn't a bot, it does
-      something different. It types itself out like a terminal session, working out your IP, your
-      city, your ISP, logging it all with great seriousness, declaring an
-      "unauthorised access" and a threat level. None of it is real, It's all theatre,
-      running entirely in your browser, storing nothing. and then, once it's done
-      being dramatic, it sends you somewhere very specific on YouTube.
-      You'll know it when you see it.
-    </p>
   </section>
 
   <section class="section">
