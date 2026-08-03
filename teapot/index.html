@@ -4,13 +4,26 @@
   if you're reading this, you either probed calicosunbeam.org for something
   you shouldn't have, or you're curious about how the site works. either way, hi.
 
-  this page is served to anyone requesting common attack paths like /.git/, /.env,
-  /wp-admin, etc. instead of a boring 403 or 404, you get a random pride flag
-  for half a second and then get sent somewhere. where? who knows. could be
-  educational. could be a 10gb file. could be the gender recognition act 2004.
+  how it works:
 
-  to add more redirects: add an object to the redirects array with url and label.
-  to add more flags: add an object to the flags array with name and colors.
+  1. the page loads with a full screen div
+  2. a random flag is selected from the flags array using Math.floor(Math.random() * flags.length)
+  3. the flag colors are built into a CSS linear-gradient applied to the div background
+  4. simultaneously a random redirect is selected from the redirects array using the same method
+  5. after 500ms a setTimeout fires window.location.href to the selected redirect URL
+  6. the flag and redirect are selected independently so any combination is possible
+  7. the redirects array length is used directly so adding new entries requires no other changes
+  8. same for the flags array
+
+  the cloudflare redirect rule that sends traffic here matches these paths:
+  /.git/, /.env, /.htaccess, /.htpasswd, /wp-admin, /wp-login, /wp-config,
+  /phpMyAdmin, /phpmyadmin, /shell, /cmd, /getcmd, /.aws, /.ssh, /actuator,
+  /xmlrpc, /passwd, /docker, /composer, /node_modules, /vendor, /.DS_Store,
+  /autodiscover, /proc/self
+
+  the WAF rule runs before the redirect rule so blocked paths never reach caddy.
+  the redirect rule points here instead of blocking so humans get the full experience.
+  bots just get a 302 and move on. we don't mind.
 
   the serious ones don't have uwu labels. you'll know which ones they are.
 
