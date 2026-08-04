@@ -49,7 +49,7 @@
 <div class="frame">
   <img src="/globalmedia/Obama.jpg" alt="">
 </div>
-<audio id="anthem" src="/globalmedia/StarSpangled.mp3" autoplay></audio>
+<audio id="anthem" src="/globalmedia/StarSpangled.mp3" autoplay preload="auto" playsinline></audio>
 <script>
   const audio = document.getElementById('anthem');
 
@@ -60,7 +60,7 @@
 
   tryPlay();
 
-  const events = ['click', 'keydown', 'touchstart', 'pointerdown'];
+  const events = ['click', 'keydown', 'touchend', 'pointerup'];
   function playOnInteraction() {
     tryPlay();
     events.forEach(e => document.removeEventListener(e, playOnInteraction));
