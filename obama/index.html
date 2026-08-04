@@ -16,11 +16,14 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100vh;
+    width: auto;
+    max-width: none;
     transform-origin: 61% 33%;
     animation: eyezoom 78s ease-in-out infinite;
   }
