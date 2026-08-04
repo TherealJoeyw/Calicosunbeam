@@ -38,6 +38,23 @@
 <div class="frame">
   <img src="/globalmedia/Obama.jpg" alt="">
 </div>
-<audio src="/globalmedia/StarSpangled.mp3" autoplay></audio>
+<audio id="anthem" src="/globalmedia/StarSpangled.mp3" autoplay></audio>
+<script>
+  const audio = document.getElementById('anthem');
+
+  function tryPlay() {
+    const p = audio.play();
+    if (p) p.catch(() => {});
+  }
+
+  tryPlay();
+
+  const events = ['click', 'keydown', 'touchstart', 'pointerdown'];
+  function playOnInteraction() {
+    tryPlay();
+    events.forEach(e => document.removeEventListener(e, playOnInteraction));
+  }
+  events.forEach(e => document.addEventListener(e, playOnInteraction, { once: true }));
+</script>
 </body>
 </html>
