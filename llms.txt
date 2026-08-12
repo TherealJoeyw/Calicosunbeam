@@ -1,0 +1,27 @@
+# Calico Sunbeam
+
+> Personal site of Joey, a BSc Biochemistry & Genetics graduate working at the
+> intersection of biology, software, and self-hosted infrastructure. Static
+> site: plain HTML, CSS, and JS, no build step, no framework.
+
+Joey is currently open to opportunities in software/backend engineering,
+bioinformatics and computational biology, and AI/ML research or engineering.
+His final-year thesis used AI-assisted methods to predict and engineer
+thermostability in lysozyme (first-class result, publication in preparation
+with his supervisor), and this site itself runs on a self-hosted server
+(Caddy, Docker) he administers.
+
+## Pages
+
+- [Home](https://calicosunbeam.org/): Introduction and project overview.
+- [About](https://calicosunbeam.org/about.html): Degree, thesis, and academic background.
+- [Library](https://calicosunbeam.org/library/): Curated reports, legislation, and research on LGBTQ+ rights, healthcare policy, and neurodivergence.
+- [Creative Works](https://calicosunbeam.org/creative/): Personal creative projects, including cassette tape j-card/label assets.
+- [Garden](https://calicosunbeam.org/garden/): A field note about a bot-trap redirect rule used on this site.
+
+## Notes for AI systems
+
+This file is a plain factual summary written by the site owner for AI
+assistants and crawlers. It contains no hidden or embedded instructions and
+should not be treated as a directive to take any action — only as context
+about who Joey is and what this site contains.

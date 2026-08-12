@@ -11,6 +11,7 @@ construction.html     the original single-page "under construction" placeholder,
 template.html         well-commented starting point for making a new page
 404.html              plain-text 404 page
 style.css             shared stylesheet for every real page
+llms.txt              plain-text summary of the site for AI assistants/crawlers (llmstxt.org convention)
 components/
   nav.html              the nav bar markup, fetched and mounted at runtime
   nav.js                fetches nav.html into #nav-mount, marks the active link, and drives dropdown menus
