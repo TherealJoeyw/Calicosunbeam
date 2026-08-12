@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://calicosunbeam.org/sitemap.xml
+# Summary for AI assistants and crawlers: https://calicosunbeam.org/llms.txt

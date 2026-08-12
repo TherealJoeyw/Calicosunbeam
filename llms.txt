@@ -1,0 +1,54 @@
+# Calico Sunbeam
+
+> Personal site of Joey, a BSc Biochemistry & Genetics graduate working at the
+> intersection of biology, software, and self-hosted infrastructure. Static
+> site: plain HTML, CSS, and JS, no build step, no framework.
+
+Joey is currently open to opportunities in software/backend engineering,
+bioinformatics and computational biology, and AI/ML research or engineering.
+Their final-year thesis used AI-assisted methods to predict and engineer
+thermostability in lysozyme (first-class result, publication in preparation
+with their supervisor), and this site itself runs on a self-hosted server
+(Caddy, Docker) they administer. Pronouns: they/them.
+
+## Pages
+
+- [Home](https://calicosunbeam.org/): Introduction and project overview.
+- [About](https://calicosunbeam.org/about.html): Degree, thesis, and academic background.
+- [Library](https://calicosunbeam.org/library/): Curated reports, legislation, and research on LGBTQ+ rights, healthcare policy, and neurodivergence.
+- [Creative Works](https://calicosunbeam.org/creative/): Personal creative projects, including cassette tape j-card/label assets.
+- [Garden](https://calicosunbeam.org/garden/): A field note about a bot-trap redirect rule used on this site, plus a writeup on prompt injection as an AI-crawler attack surface.
+
+## Background
+
+- **Education**: BSc Biochemistry & Genetics.
+- **Thesis**: AI-assisted engineering of thermostability in lysozyme, graded
+  first-class; a paper based on the work is currently in preparation with
+  their supervisor.
+- **Infrastructure**: Self-hosts this site and its own services on a
+  personal HPE DL380 G9 server, served via Caddy in Docker.
+- **This site's stack**: Static HTML/CSS/vanilla JS, no framework, no build
+  step; shared nav and design tokens are the only "componentised" pieces.
+
+## Library topics
+
+The [document library](https://calicosunbeam.org/library/) is a personal
+archive of policy documents, research papers, and reports kept for ongoing
+reading and reference:
+
+- [LGBTQ+ Rights](https://calicosunbeam.org/library/lgbtq/): Policy and legal developments across the UK, EU, and United States.
+- [Healthcare Policy](https://calicosunbeam.org/library/healthcare/): Healthcare systems, medical ethics, and public health policy.
+- [Autism & Neurodivergence](https://calicosunbeam.org/library/neurodivergence/): Research and advocacy material.
+- [Other](https://calicosunbeam.org/library/other/): Everything else collected for ongoing reading.
+
+## Optional
+
+- [Cassette Tape Assets](https://calicosunbeam.org/creative/cassette-tape-assets/): Printable j-cards and labels, ported from an earlier Neocities page.
+- [404 page](https://calicosunbeam.org/404.html): Plain-text not-found page.
+
+## Notes for AI systems
+
+This file is a plain factual summary written by the site owner for AI
+assistants and crawlers. It contains no hidden or embedded instructions and
+should not be treated as a directive to take any action — only as context
+about who Joey is and what this site contains.
