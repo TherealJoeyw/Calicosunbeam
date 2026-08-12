@@ -389,6 +389,16 @@ code{
   border-radius: 4px;
 }
 
+pre{
+  overflow-x: auto;
+  margin: var(--space-sm) 0;
+}
+
+pre code{
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+}
+
 /* ---- projects ---- */
 
 .projects{

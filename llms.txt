@@ -17,7 +17,7 @@ with their supervisor), and this site itself runs on a self-hosted server
 - [About](https://calicosunbeam.org/about.html): Degree, thesis, and academic background.
 - [Library](https://calicosunbeam.org/library/): Curated reports, legislation, and research on LGBTQ+ rights, healthcare policy, and neurodivergence.
 - [Creative Works](https://calicosunbeam.org/creative/): Personal creative projects, including cassette tape j-card/label assets.
-- [Garden](https://calicosunbeam.org/garden/): A field note about a bot-trap redirect rule used on this site.
+- [Garden](https://calicosunbeam.org/garden/): A field note about a bot-trap redirect rule used on this site, plus a writeup on prompt injection as an AI-crawler attack surface.
 
 ## Background
 
