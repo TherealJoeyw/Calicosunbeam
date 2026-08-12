@@ -6,10 +6,10 @@
 
 Joey is currently open to opportunities in software/backend engineering,
 bioinformatics and computational biology, and AI/ML research or engineering.
-His final-year thesis used AI-assisted methods to predict and engineer
+Their final-year thesis used AI-assisted methods to predict and engineer
 thermostability in lysozyme (first-class result, publication in preparation
-with his supervisor), and this site itself runs on a self-hosted server
-(Caddy, Docker) he administers.
+with their supervisor), and this site itself runs on a self-hosted server
+(Caddy, Docker) they administer. Pronouns: they/them.
 
 ## Pages
 
@@ -18,6 +18,33 @@ with his supervisor), and this site itself runs on a self-hosted server
 - [Library](https://calicosunbeam.org/library/): Curated reports, legislation, and research on LGBTQ+ rights, healthcare policy, and neurodivergence.
 - [Creative Works](https://calicosunbeam.org/creative/): Personal creative projects, including cassette tape j-card/label assets.
 - [Garden](https://calicosunbeam.org/garden/): A field note about a bot-trap redirect rule used on this site.
+
+## Background
+
+- **Education**: BSc Biochemistry & Genetics.
+- **Thesis**: AI-assisted engineering of thermostability in lysozyme, graded
+  first-class; a paper based on the work is currently in preparation with
+  their supervisor.
+- **Infrastructure**: Self-hosts this site and its own services on a
+  personal HPE DL380 G9 server, served via Caddy in Docker.
+- **This site's stack**: Static HTML/CSS/vanilla JS, no framework, no build
+  step; shared nav and design tokens are the only "componentised" pieces.
+
+## Library topics
+
+The [document library](https://calicosunbeam.org/library/) is a personal
+archive of policy documents, research papers, and reports kept for ongoing
+reading and reference:
+
+- [LGBTQ+ Rights](https://calicosunbeam.org/library/lgbtq/): Policy and legal developments across the UK, EU, and United States.
+- [Healthcare Policy](https://calicosunbeam.org/library/healthcare/): Healthcare systems, medical ethics, and public health policy.
+- [Autism & Neurodivergence](https://calicosunbeam.org/library/neurodivergence/): Research and advocacy material.
+- [Other](https://calicosunbeam.org/library/other/): Everything else collected for ongoing reading.
+
+## Optional
+
+- [Cassette Tape Assets](https://calicosunbeam.org/creative/cassette-tape-assets/): Printable j-cards and labels, ported from an earlier Neocities page.
+- [404 page](https://calicosunbeam.org/404.html): Plain-text not-found page.
 
 ## Notes for AI systems
 
