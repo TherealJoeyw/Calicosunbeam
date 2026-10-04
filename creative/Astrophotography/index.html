@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astrophotography — Calico Sunbeam</title>
+<link rel="icon" type="image/png" href="/globalmedia/favicon.png">
+
+<meta property="og:title" content="Astrophotography — Calico Sunbeam">
+<meta property="og:description" content="Long-exposure frames from dark skies.">
+<meta property="og:image" content="https://calicosunbeam.org/globalmedia/calicocrest.png">
+<meta property="og:url" content="https://calicosunbeam.org/creative/Astrophotography/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FF6600">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;1,9..144,460&family=IBM+Plex+Mono:wght@400;500&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+  .astro-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  @media (max-width: 480px) {
+    .astro-gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .astro-gallery figure {
+    margin: 0;
+    cursor: pointer;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-panel);
+  }
+
+  .astro-gallery figure:focus-within {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+
+  .astro-gallery .img-wrap {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: block;
+  }
+
+  .astro-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .astro-gallery img {
+      transition: none;
+    }
+  }
+
+  .astro-gallery figure:hover img,
+  .astro-gallery figure:focus-within img {
+    transform: scale(1.03);
+  }
+
+  .astro-gallery figcaption {
+    padding: var(--space-xs) var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .astro-gallery .cap-date {
+    color: var(--cream);
+    display: block;
+  }
+
+  .astro-gallery .cap-desc {
+    color: var(--muted);
+    display: block;
+  }
+
+  /* Lightbox */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 13, 13, 0.92);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #lightbox.open {
+    display: flex;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    #lightbox {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    #lightbox.open {
+      opacity: 1;
+    }
+  }
+
+  #lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: var(--radius);
+    display: block;
+    /* prevent click on image from triggering close */
+    pointer-events: none;
+  }
+
+  #lightbox-close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: none;
+    border: 1px solid var(--muted);
+    color: var(--cream);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1.4;
+  }
+
+  #lightbox-close:hover,
+  #lightbox-close:focus {
+    border-color: var(--orange);
+    color: var(--orange);
+    outline: none;
+  }
+
+  .astro-empty {
+    grid-column: 1 / -1;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: var(--space-md) 0;
+  }
+</style>
+</head>
+<body>
+
+<svg class="grain" xmlns="http://www.w3.org/2000/svg">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#noise)"/>
+</svg>
+
+<div class="glow" aria-hidden="true"></div>
+
+<div id="nav-mount"></div>
+<script src="/components/nav.js"></script>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Creative</p>
+    <h1>Astrophotography</h1>
+    <p class="sub">Long-exposure frames from dark skies.</p>
+  </section>
+
+  <section class="section">
+    <div class="astro-gallery" id="gallery" role="list" aria-label="Astrophotography gallery"></div>
+  </section>
+
+  <div class="links-row">
+    <a href="/creative/">Creative</a>
+    <a href="/">Home</a>
+  </div>
+</main>
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+  <button id="lightbox-close" aria-label="Close lightbox">close ✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<div class="vine-wrap" aria-hidden="true">
+  <svg width="100%" height="120" viewBox="0 0 1000 120" xmlns="http://www.w3.org/2000/svg">
+    <path class="vine-path" d="M0,100 C120,70 220,115 340,90 C460,68 560,110 680,88 C800,68 880,105 1000,80"/>
+    <ellipse class="leaf" cx="80"  cy="95"  rx="18" ry="11" transform="rotate(-25 80 95)"/>
+    <ellipse class="leaf" cx="180" cy="82"  rx="20" ry="12" transform="rotate(-20 180 82)"/>
+    <ellipse class="leaf" cx="260" cy="100" rx="18" ry="11" transform="rotate(10 260 100)"/>
+    <ellipse class="leaf" cx="340" cy="88"  rx="20" ry="12" transform="rotate(-15 340 88)"/>
+    <ellipse class="leaf" cx="400" cy="76"  rx="18" ry="11" transform="rotate(15 400 76)"/>
+    <ellipse class="leaf" cx="460" cy="92"  rx="20" ry="12" transform="rotate(-8 460 92)"/>
+    <ellipse class="leaf" cx="530" cy="104" rx="18" ry="11" transform="rotate(20 530 104)"/>
+    <ellipse class="leaf" cx="620" cy="80"  rx="20" ry="12" transform="rotate(-10 620 80)"/>
+    <ellipse class="leaf" cx="700" cy="94"  rx="18" ry="11" transform="rotate(18 700 94)"/>
+    <ellipse class="leaf" cx="760" cy="78"  rx="20" ry="12" transform="rotate(-22 760 78)"/>
+    <ellipse class="leaf" cx="840" cy="74"  rx="18" ry="11" transform="rotate(25 840 74)"/>
+    <ellipse class="leaf" cx="920" cy="88"  rx="20" ry="12" transform="rotate(-12 920 88)"/>
+  </svg>
+</div>
+
+<script>
+const IMAGES = [
+  "2026-09-28-andromeda.jpg",
+  // oldest last
+];
+
+// ---- helpers ----
+
+function parseFilename(filename) {
+  const base = filename.replace(/\.(jpg|png)$/i, "");
+  const match = base.match(/^(\d{4}-\d{2}-\d{2})-(.+)$/);
+  if (!match) return null;
+  const [, dateStr, slug] = match;
+  return { filename, dateStr, slug };
+}
+
+function formatDate(dateStr) {
+  const [year, month, day] = dateStr.split("-").map(Number);
+  const months = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+  ];
+  return `${String(day).padStart(2, "0")} ${months[month - 1]} ${year}`;
+}
+
+function toTitleCase(slug) {
+  return slug
+    .split("-")
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+function sortedImages() {
+  return [...IMAGES]
+    .map(parseFilename)
+    .filter(Boolean)
+    .sort((a, b) => b.dateStr.localeCompare(a.dateStr));
+}
+
+// ---- gallery ----
+
+function buildGallery() {
+  const gallery = document.getElementById("gallery");
+  const items = sortedImages();
+
+  if (items.length === 0) {
+    gallery.innerHTML = '<p class="astro-empty">No images yet — check back soon.</p>';
+    return;
+  }
+
+  items.forEach(({ filename, dateStr, slug }) => {
+    const desc = toTitleCase(slug);
+    const date = formatDate(dateStr);
+    const src = `images/${filename}`;
+
+    const fig = document.createElement("figure");
+    fig.setAttribute("role", "listitem");
+    fig.setAttribute("tabindex", "0");
+    fig.setAttribute("aria-label", `${desc}, ${date}`);
+
+    const wrap = document.createElement("div");
+    wrap.className = "img-wrap";
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = desc;
+    img.loading = "lazy";
+    img.decoding = "async";
+
+    const cap = document.createElement("figcaption");
+    cap.innerHTML = `<span class="cap-date">${date}</span><span class="cap-desc">${desc}</span>`;
+
+    wrap.appendChild(img);
+    fig.appendChild(wrap);
+    fig.appendChild(cap);
+    gallery.appendChild(fig);
+
+    fig.addEventListener("click", () => openLightbox(src, desc));
+    fig.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLightbox(src, desc);
+      }
+    });
+  });
+}
+
+// ---- lightbox ----
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxClose = document.getElementById("lightbox-close");
+
+let previousFocus = null;
+
+const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+function openLightbox(src, alt) {
+  previousFocus = document.activeElement;
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.classList.add("open");
+  lightbox.removeAttribute("aria-hidden");
+  lightboxClose.focus();
+  trapFocus();
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  lightboxImg.src = "";
+  if (previousFocus) previousFocus.focus();
+}
+
+function trapFocus() {
+  const focusable = Array.from(lightbox.querySelectorAll(focusableSelectors));
+  if (focusable.length === 0) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  function handler(e) {
+    if (e.key !== "Tab") return;
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+
+  lightbox.addEventListener("keydown", handler);
+  lightbox.addEventListener("keydown", function escHandler(e) {
+    if (e.key === "Escape") closeLightbox();
+  });
+}
+
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+lightboxClose.addEventListener("click", closeLightbox);
+
+lightbox.setAttribute("aria-hidden", "true");
+
+// ---- init ----
+
+buildGallery();
+</script>
+
+</body>
+</html>
