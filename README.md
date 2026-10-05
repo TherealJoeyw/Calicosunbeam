@@ -23,6 +23,9 @@ creative/
     index.html            printable j-cards and labels, ported from the old Neocities page
     images/               the full-resolution album art
     images/thumbs/        small JPEG previews used on the page itself
+  Astrophotography/
+    index.html            gallery page; images listed in a JS array, sorted newest-first at render time
+    images/               full-resolution shots (YYYY-MM-DD-description.jpg/.png naming convention)
 globalmedia/
   favicon.png
   calicocrest.png
