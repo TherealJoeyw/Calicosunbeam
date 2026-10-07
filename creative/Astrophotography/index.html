@@ -228,6 +228,10 @@ const IMAGES = [
   // oldest last
 ];
 
+const CAPTIONS = {
+  "2026-10-05-at2026aabo-nova-comparison.png": "AT 2026aabo — that pixel, and it might be it",
+};
+
 // ---- helpers ----
 
 function parseFilename(filename) {
@@ -273,7 +277,7 @@ function buildGallery() {
   }
 
   items.forEach(({ filename, dateStr, slug }) => {
-    const desc = toTitleCase(slug);
+    const desc = CAPTIONS[filename] || toTitleCase(slug);
     const date = formatDate(dateStr);
     const src = `images/${filename}`;
 
