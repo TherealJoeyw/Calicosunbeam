@@ -2,7 +2,7 @@
   var mount = document.getElementById('nav-mount');
   if (!mount) return;
 
-  fetch('/components/nav.html')
+  fetch('/components/nav.html?v=2')
     .then(function (res) { return res.text(); })
     .then(function (html) {
       mount.outerHTML = html;
