@@ -1,0 +1,171 @@
+<!--
+  TEMPLATE.HTML — starting point for a new Calico Sunbeam page.
+
+  How to use this file:
+    1. Copy it to a new filename, e.g. `cp template.html mynewpage.html`.
+    2. Fill in every placeholder marked with [SQUARE BRACKETS] below.
+    3. Delete the HTML comments once you understand a section (they're
+       explanations, not content — keep or bin them, your call).
+    4. Add `mynewpage.html` as a link somewhere (nav, index, etc.) if it
+       should be reachable — this file alone won't be linked anywhere.
+
+  This page pulls in the shared design system from `style.css` and the
+  shared nav from `components/nav.html` / `components/nav.js`, so you
+  don't need to (and shouldn't) redefine colours, fonts, or the nav markup
+  here. See README.md for the full design token table.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Browser tab title. Convention across the site: "[Page Name] - Calico Sunbeam" -->
+<title>[Page Title] - Calico Sunbeam</title>
+<link rel="icon" type="image/png" href="globalmedia/favicon.png">
+
+<!--
+  Open Graph tags: control the preview card shown when this page's link is
+  pasted into Discord, Slack, Twitter/X, iMessage, etc.
+    - og:title / og:description: keep them short, they get truncated.
+    - og:image: the crest image is the site default; swap it out if this
+      page deserves its own preview image.
+    - og:url: must be the real, final URL this page will live at.
+-->
+<meta property="og:title" content="[Page Title] - Calico Sunbeam">
+<meta property="og:description" content="[One sentence describing this page.]">
+<meta property="og:image" content="https://calicosunbeam.org/globalmedia/calicocrest.png">
+<meta property="og:url" content="https://calicosunbeam.org/[filename].html">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FF6600">
+
+<!-- Fonts + the shared stylesheet. Copy these three lines as-is on every page. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,560;1,9..144,460&family=IBM+Plex+Mono:wght@400;500&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  Grain overlay: a faint noise texture laid over the whole page for
+  visual texture. Purely decorative — copy verbatim, don't edit.
+-->
+<svg class="grain" xmlns="http://www.w3.org/2000/svg">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#noise)"/>
+</svg>
+
+<!-- The orange sunbeam glow in the background. Also decorative, copy verbatim. -->
+<div class="glow" aria-hidden="true"></div>
+
+<!--
+  Nav bar. Don't hand-write the nav markup here — nav.js fetches
+  components/nav.html and drops it into this empty div, then marks
+  whichever link matches the current URL as the active page. To change
+  the nav links site-wide, edit components/nav.html once.
+-->
+<div id="nav-mount"></div>
+<script src="/components/nav.js"></script>
+
+<main>
+
+  <!--
+    Hero: the big title block at the top of every page.
+    - .eyebrow: small label above the heading (optional but common).
+    - h1: the page's main heading.
+    - .sub: one-line subheading/tagline under it.
+  -->
+  <section class="hero">
+    <p class="eyebrow">[Small label above the title]</p>
+    <h1>[Page Title]</h1>
+    <p class="sub">[One-line subheading or tagline.]</p>
+  </section>
+
+  <!--
+    Standard content section. Use as many of these as the page needs.
+    Plain <h2>/<p> inside .section already get sensible spacing and type
+    from style.css — no extra classes needed for ordinary prose.
+  -->
+  <section class="section">
+    <h2>[Section heading]</h2>
+    <p>
+      [Body copy goes here. Links use the default <a> styling, e.g.
+      <a href="index.html">back to the homepage</a>.]
+    </p>
+  </section>
+
+  <!--
+    Optional: a labelled fact list, used on about.html for things like
+    "Degree", "Thesis", etc. Delete this block if you don't need it.
+  -->
+  <!--
+  <section class="section">
+    <ul class="fact-list">
+      <li>
+        <span class="fact-label">[Label]</span>
+        <p class="fact-value">
+          [Value text, optionally with a <span class="stat">highlighted stat</span>.]
+        </p>
+      </li>
+    </ul>
+  </section>
+  -->
+
+  <!--
+    Optional: card grid, used on index.html under "Projects". Delete this
+    block if you don't need it.
+  -->
+  <!--
+  <section class="section">
+    <h2>[Section heading]</h2>
+    <div class="projects">
+      <article class="project-card">
+        <p class="project-tag">[Small tag/category]</p>
+        <h3>[Card title]</h3>
+        <p>[Card description.]</p>
+      </article>
+    </div>
+  </section>
+  -->
+
+  <!--
+    Row of quick links, usually near the bottom of the page (see
+    index.html / about.html for real examples).
+  -->
+  <div class="links-row">
+    <a href="index.html">Home</a>
+  </div>
+
+  <!--
+    Optional small print / disclaimer text at the very bottom of <main>,
+    styled smaller and muted. Delete if not needed.
+  -->
+  <!-- <p class="footnote">[Small print goes here.]</p> -->
+
+</main>
+
+<!--
+  Vine/leaf footer decoration. Purely decorative, appears at the bottom of
+  every real page on the site. Copy verbatim, don't edit.
+-->
+<div class="vine-wrap" aria-hidden="true">
+  <svg width="100%" height="120" viewBox="0 0 1000 120" xmlns="http://www.w3.org/2000/svg">
+    <path class="vine-path" d="M0,100 C120,70 220,115 340,90 C460,68 560,110 680,88 C800,68 880,105 1000,80"/>
+    <ellipse class="leaf" cx="80"  cy="95"  rx="18" ry="11" transform="rotate(-25 80 95)"/>
+    <ellipse class="leaf" cx="180" cy="82"  rx="20" ry="12" transform="rotate(-20 180 82)"/>
+    <ellipse class="leaf" cx="260" cy="100" rx="18" ry="11" transform="rotate(10 260 100)"/>
+    <ellipse class="leaf" cx="340" cy="88"  rx="20" ry="12" transform="rotate(-15 340 88)"/>
+    <ellipse class="leaf" cx="400" cy="76"  rx="18" ry="11" transform="rotate(15 400 76)"/>
+    <ellipse class="leaf" cx="460" cy="92"  rx="20" ry="12" transform="rotate(-8 460 92)"/>
+    <ellipse class="leaf" cx="530" cy="104" rx="18" ry="11" transform="rotate(20 530 104)"/>
+    <ellipse class="leaf" cx="620" cy="80"  rx="20" ry="12" transform="rotate(-10 620 80)"/>
+    <ellipse class="leaf" cx="700" cy="94"  rx="18" ry="11" transform="rotate(18 700 94)"/>
+    <ellipse class="leaf" cx="760" cy="78"  rx="20" ry="12" transform="rotate(-22 760 78)"/>
+    <ellipse class="leaf" cx="840" cy="74"  rx="18" ry="11" transform="rotate(25 840 74)"/>
+    <ellipse class="leaf" cx="920" cy="88"  rx="20" ry="12" transform="rotate(-12 920 88)"/>
+  </svg>
+</div>
+
+</body>
+</html>
